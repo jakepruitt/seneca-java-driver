@@ -6,7 +6,9 @@
 =  https://github.com/jrpruit1/seneca-java-client   =
 = or feel free to contact me on twitter:            = 
 =  @thejakepruitt                                   =
-==========================================*/
+===================================================*/
+package com.seneca.seneca-java-client;
+
 import java.net.URL;
 import java.net.MalformedURLException;
 
