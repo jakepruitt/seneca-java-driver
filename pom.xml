@@ -24,5 +24,11 @@
       <artifactId>google-api-client</artifactId>
       <version>1.18.0-rc</version>
     </dependency>
+    <dependency>
+    <groupId>com.github.tomakehurst</groupId>
+      <artifactId>wiremock</artifactId>
+      <version>1.50</version>
+      <classifier>standalone</classifier>
+  </dependency>
   </dependencies>
 </project>
