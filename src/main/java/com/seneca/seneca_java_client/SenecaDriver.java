@@ -36,7 +36,7 @@ public class SenecaDriver {
 		this.remotePort = remotePort;
 
 		try {
-			this.remoteURL  = new GenericUrl("http://" + remoteHost + ":" + remotePort);
+			this.remoteURL  = new GenericUrl("http://" + remoteHost + ":" + remotePort + "/index.html");
 		} catch(IllegalArgumentException ex) {
 			throw new IllegalArgumentException("Host or Port parameters could not be converted to URL", ex);
 		}
@@ -52,6 +52,7 @@ public class SenecaDriver {
 	}
 
 	public Message sendJson(Object data) {
+
 		HttpRequestFactory requestFactory = 
 			HTTP_TRANSPORT.createRequestFactory(new HttpRequestInitializer() {
 				@Override
@@ -63,10 +64,12 @@ public class SenecaDriver {
 		JsonHttpContent jsonContent = new JsonHttpContent(JSON_FACTORY, data);
 
 		try {
+			System.out.println("URL Requesting: " + this.remoteURL.toString());
 			HttpRequest request = requestFactory.buildPostRequest(this.remoteURL, jsonContent);
 			Message message = request.execute().parseAs(Message.class);
 			return message;
 		} catch(IOException ex) {
+			System.err.println("Caught IOException: " + ex.getMessage());
 			return null;
 		}
 	}
