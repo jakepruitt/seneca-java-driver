@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite failures="0" time="1.592" errors="0" skipped="0" tests="2" name="com.seneca.seneca_java_client.AppTest">
+<testsuite failures="0" time="3.745" errors="0" skipped="0" tests="2" name="org.senecajs.seneca_java_driver.AppTest">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.7.0_15\jre\bin"/>
@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value="Service Pack 1"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="C:\Users\Jake\Documents\js Reading\seneca-java-client"/>
+    <property name="user.dir" value="C:\Users\Jake\Documents\js Reading\seneca-java-driver"/>
     <property name="java.runtime.version" value="1.7.0_15-b03"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
     <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.7.0_15\jre\lib\endorsed"/>
@@ -60,6 +60,6 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase time="0.631" classname="com.seneca.seneca_java_client.AppTest" name="testApp"/>
-  <testcase time="0.961" classname="com.seneca.seneca_java_client.AppTest" name="testSendJson"/>
+  <testcase time="1.964" classname="org.senecajs.seneca_java_driver.AppTest" name="testApp"/>
+  <testcase time="1.781" classname="org.senecajs.seneca_java_driver.AppTest" name="testSendJson"/>
 </testsuite>

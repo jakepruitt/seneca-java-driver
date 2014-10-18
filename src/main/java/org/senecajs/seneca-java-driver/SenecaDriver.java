@@ -1,13 +1,13 @@
 /* ==================================================
-= Seneca Java Client                                =
+= Seneca Java Driver                                =
 =                                                   =
 = For any questions about the Seneca or this Java   =
 = driver, check out the docs at                     =
-=  https://github.com/jrpruit1/seneca-java-client   =
+=  https://github.com/jrpruit1/seneca-java-driver   =
 = or feel free to contact me on twitter:            = 
 =  @thejakepruitt                                   =
 ===================================================*/
-package com.seneca.seneca_java_client;
+package org.senecajs.seneca_java_driver;
 
 import java.io.IOException;
 

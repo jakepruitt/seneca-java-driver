@@ -1,4 +1,4 @@
-package com.seneca.seneca_java_client;
+package org.senecajs.seneca_java_driver;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import com.github.tomakehurst.wiremock.junit.WireMockRule;

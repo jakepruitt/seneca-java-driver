@@ -1,3 +1,3 @@
-com\seneca\seneca_java_client\SenecaDriver$Message.class
-com\seneca\seneca_java_client\SenecaDriver$1.class
-com\seneca\seneca_java_client\SenecaDriver.class
+org\senecajs\seneca_java_driver\SenecaDriver$Message.class
+org\senecajs\seneca_java_driver\SenecaDriver$1.class
+org\senecajs\seneca_java_driver\SenecaDriver.class
