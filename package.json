@@ -1,0 +1,11 @@
+{
+  "name": "seneca-java-driver",
+  "version": "1.0.0",
+  "description": "seneca-java-driver",
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://github.com/jrpruit1/seneca-java-client",
+  "devDependencies": {
+    "seneca": "^0.5.21"
+  }
+}
