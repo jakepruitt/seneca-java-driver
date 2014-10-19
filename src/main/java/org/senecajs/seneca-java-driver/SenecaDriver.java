@@ -13,6 +13,17 @@ import org.apache.http.client.fluent.*;
 import org.apache.http.entity.ContentType;
 // import org.apache.http.client.ClientProtocolException;
 
+	/**
+	
+		TODO:
+		- [ ] Write description of use case
+		- [ ] Handle various .act() exceptions
+		- [ ] Configure maven to automatically start config-server.js
+		- [ ] Create an override for .act() that accepts any object and parses to JSON
+		- [ ] Create .add() and .listen() functionality
+	
+	**/
+
 public class SenecaDriver {
 	private int remotePort;
 	private String remoteHost;
@@ -24,13 +35,12 @@ public class SenecaDriver {
 		this.remoteURL = "http://" + remoteHost + ":" + remotePort + "/act";
 	}
 
-	/**
-	
-		TODO:
-		- Make sure to change Exception to ClientProtocolException
-		- Second todo item
-	
-	**/
+	public void client(String remoteHost, int remotePort) {
+		this.remoteHost = remoteHost;
+		this.remotePort = remotePort;
+		this.remoteURL = "http://" + remoteHost + ":" + remotePort + "/act";
+	}
+
 	public String act(String json) throws Exception {
 		String responseString = Request.Post(this.remoteURL.toString())
             .bodyString(json, ContentType.APPLICATION_JSON)
