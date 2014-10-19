@@ -1,7 +1,5 @@
 package org.senecajs.seneca_java_driver;
 
-import static com.github.tomakehurst.wiremock.client.WireMock.*;
-import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
@@ -15,34 +13,22 @@ import org.junit.runners.JUnit4;
  */
 public class AppTest
 {
-
-    @Rule
-    public WireMockRule wireMockRule = new WireMockRule(8080); // No-args constructor defaults to port 8080
-    
     /**
      * Rigourous Test :-)
      */
     @Test
-    public void testApp()
+    public void testClientInitialization()
     {
-        SenecaDriver client = new SenecaDriver("localhost", 8080);
+        SenecaDriver client = new SenecaDriver("10.143.161.29", 10101);
         assertTrue( client != null );
     }
 
-
     @Test
-    public void testSendJson()
-    {
-        stubFor(get(urlEqualTo("/index.html"))
-            .willReturn(aResponse()
-                .withStatus(200)
-                .withHeader("Content Type", "text")
-                .withBody("Hello Boston")));
+    public void testActWithString() throws Exception {
+        SenecaDriver client = new SenecaDriver("10.143.161.29", 10101);
+        String responseString = client.act("{\"cmd\": \"config\", \"prop\": \"rate\"}");
 
-        SenecaDriver client = new SenecaDriver("localhost", 8080);
-        Object objectToSend = new Object();
-        SenecaDriver.Message message = client.sendJson(new Object());
-        assertTrue( message == null );
+        System.out.println(responseString);
+        assertTrue(responseString != "{\"value\":0.23}");
     }
-
 }

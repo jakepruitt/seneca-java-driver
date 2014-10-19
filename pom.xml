@@ -15,20 +15,14 @@
       <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId>com.google.api-client</groupId>
-      <artifactId>google-api-client-jackson2</artifactId>
-      <version>1.18.0-rc</version>
+      <groupId>org.apache.httpcomponents</groupId>
+      <artifactId>fluent-hc</artifactId>
+      <version>4.3.5</version>
     </dependency>
     <dependency>
-      <groupId>com.google.api-client</groupId>
-      <artifactId>google-api-client</artifactId>
-      <version>1.18.0-rc</version>
+      <groupId>org.apache.httpcomponents</groupId>
+      <artifactId>httpcore</artifactId>
+      <version>4.3.2</version>
     </dependency>
-    <dependency>
-    <groupId>com.github.tomakehurst</groupId>
-      <artifactId>wiremock</artifactId>
-      <version>1.50</version>
-      <classifier>standalone</classifier>
-  </dependency>
   </dependencies>
 </project>

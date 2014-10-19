@@ -9,70 +9,34 @@
 ===================================================*/
 package org.senecajs.seneca_java_driver;
 
-import java.io.IOException;
-
-import com.google.api.client.http.GenericUrl;
-import com.google.api.client.http.HttpRequest;
-import com.google.api.client.http.HttpRequestFactory;
-import com.google.api.client.http.HttpRequestInitializer;
-import com.google.api.client.http.HttpTransport;
-import com.google.api.client.http.javanet.NetHttpTransport;
-import com.google.api.client.http.json.JsonHttpContent;
-import com.google.api.client.json.JsonFactory;
-import com.google.api.client.json.JsonObjectParser;
-import com.google.api.client.json.jackson2.JacksonFactory;
-import com.google.api.client.util.Key;
+import org.apache.http.client.fluent.*;
+import org.apache.http.entity.ContentType;
+// import org.apache.http.client.ClientProtocolException;
 
 public class SenecaDriver {
 	private int remotePort;
 	private String remoteHost;
-	private GenericUrl remoteURL;
-
-	static final HttpTransport HTTP_TRANSPORT = new NetHttpTransport();
-	static final JsonFactory JSON_FACTORY = new JacksonFactory();
+	private String remoteURL;
 
 	public SenecaDriver(String remoteHost, int remotePort) {
 		this.remoteHost = remoteHost;
 		this.remotePort = remotePort;
-
-		try {
-			this.remoteURL  = new GenericUrl("http://" + remoteHost + ":" + remotePort + "/index.html");
-		} catch(IllegalArgumentException ex) {
-			throw new IllegalArgumentException("Host or Port parameters could not be converted to URL", ex);
-		}
-		
+		this.remoteURL = "http://" + remoteHost + ":" + remotePort + "/act";
 	}
 
-	public static class Message {
-		@Key
-		public String cmd;
+	/**
+	
+		TODO:
+		- Make sure to change Exception to ClientProtocolException
+		- Second todo item
+	
+	**/
+	public String act(String json) throws Exception {
+		String responseString = Request.Post(this.remoteURL.toString())
+            .bodyString(json, ContentType.APPLICATION_JSON)
+            .execute().returnContent().asString();
 
-		@Key
-		public String role;
+    return responseString;
 	}
-
-	public Message sendJson(Object data) {
-
-		HttpRequestFactory requestFactory = 
-			HTTP_TRANSPORT.createRequestFactory(new HttpRequestInitializer() {
-				@Override
-				public void initialize(HttpRequest request) {
-					request.setParser(new JsonObjectParser(JSON_FACTORY));
-				}
-			});
-
-		JsonHttpContent jsonContent = new JsonHttpContent(JSON_FACTORY, data);
-
-		try {
-			System.out.println("URL Requesting: " + this.remoteURL.toString());
-			HttpRequest request = requestFactory.buildPostRequest(this.remoteURL, jsonContent);
-			Message message = request.execute().parseAs(Message.class);
-			return message;
-		} catch(IOException ex) {
-			System.err.println("Caught IOException: " + ex.getMessage());
-			return null;
-		}
-	}
-
 }
 
