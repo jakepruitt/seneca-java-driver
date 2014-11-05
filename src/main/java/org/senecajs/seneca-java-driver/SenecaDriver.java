@@ -25,9 +25,11 @@ import org.apache.http.entity.ContentType;
 	**/
 
 public class SenecaDriver {
-	private int remotePort;
-	private String remoteHost;
-	private String remoteURL;
+	private int remotePort = 10101;
+	private String remoteHost = "localhost";
+	private String remoteURL = "http://" + remoteHost + ":" + remotePort + "/act";
+
+	public SenecaDriver() {}
 
 	public SenecaDriver(String remoteHost, int remotePort) {
 		this.remoteHost = remoteHost;
@@ -35,6 +37,8 @@ public class SenecaDriver {
 		this.remoteURL = "http://" + remoteHost + ":" + remotePort + "/act";
 	}
 
+	public void client() {}
+	
 	public void client(String remoteHost, int remotePort) {
 		this.remoteHost = remoteHost;
 		this.remotePort = remotePort;

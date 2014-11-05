@@ -17,15 +17,22 @@ public class AppTest
      * Rigourous Test :-)
      */
     @Test
-    public void testClientInitialization()
+    public void testClientInitializationWithParams()
     {
         SenecaDriver client = new SenecaDriver("localhost", 10101);
         assertTrue( client != null );
     }
 
     @Test
+    public void testClientInitializationWithoutParams()
+    {
+        SenecaDriver client = new SenecaDriver();
+        assertTrue( client != null );
+    }
+
+    @Test
     public void testActWithString() throws Exception {
-        SenecaDriver client = new SenecaDriver("localhost", 10101);
+        SenecaDriver client = new SenecaDriver();
         String responseString = client.act("{\"cmd\": \"config\", \"prop\": \"rate\"}");
 
         System.out.println(responseString);
