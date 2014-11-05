@@ -19,13 +19,13 @@ public class AppTest
     @Test
     public void testClientInitialization()
     {
-        SenecaDriver client = new SenecaDriver("10.143.161.29", 10101);
+        SenecaDriver client = new SenecaDriver("localhost", 10101);
         assertTrue( client != null );
     }
 
     @Test
     public void testActWithString() throws Exception {
-        SenecaDriver client = new SenecaDriver("10.143.161.29", 10101);
+        SenecaDriver client = new SenecaDriver("localhost", 10101);
         String responseString = client.act("{\"cmd\": \"config\", \"prop\": \"rate\"}");
 
         System.out.println(responseString);
